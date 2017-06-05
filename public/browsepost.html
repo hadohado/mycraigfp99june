@@ -1,0 +1,108 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="robots" content="index">
+        <meta name="description" content="new post form">
+        <meta name="keywords" content="new post form">
+
+        <style type="text/css">
+            .scrollabletextbox {
+                width:450px; 
+                height:100px;                      
+                overflow:scroll;
+                overflow-x:hidden;
+            }
+            </style>
+        <script src="../bower_components/angular/angular.js"></script>
+
+        <script src="controllers/browsepost.js"></script>
+        </head>
+
+<body>
+
+    <div ng-app="browsepost" ng-controller="browsepostCtrl">
+
+    <div class="container">
+
+    <div class="row">
+
+    <!-- <section class="col-xs-4 col-md-4">  -->
+    <section class="col-sm-4 col-md-4"> 
+      <h3>Left</h3>  <p>Offer 1</p> 
+      <div id="col0"></div>
+    </section>
+
+    <section class="col-sm-4 col-md-4">   
+      <!-- <h3>Middle</h3> <p>Offer 2</p> -->
+      <div id="col1"></div>
+    </section>
+
+    <section class="col-sm-4 col-md-4">   
+      <!-- <h3>Right</h3>   <p>Offer 3</p> -->
+      <div id="col2"></div>
+    </section>
+
+    </div>
+
+    <br>
+
+
+
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                            <th>SubCat</th>
+                            <th>Location</th>
+                        <th>Title</th> <!-- Name -->
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Timestamp</th>
+                        <th>Email</th>
+                        <th>Image 1</th>
+                        <th>Image 2</th>
+                        <th>Image 3</th>
+                        <th>Image 4</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="contact in contactlist">
+                            <td>{{contact.SubCategory_ID}}</td>
+                            <td>{{contact.Location_ID}}</td>
+                        <td>{{contact.title}}</td>
+                             <td>{{contact.Price}}</td>
+                             <td>{{contact.Description}}</td>
+                             <td>{{contact.TimeStamp}}</td>
+                        <td>{{contact.email}}</td>
+                        <!--
+                        <td><a href=  images/th.jpe> <img src="C:/code/Project/miniCraiglistBuildUp/v29bitmani_mysql/uploads/{{contact.Image_1}}" width="140" height="80"></a></td>
+                       -->
+
+                        <!--  href= images/{{conteat.Image_1}}  will let us see big image -->
+                        <!--  (  click  on small image   )                                -->
+                        <td><a href= images/{{contact.Image_1}} > <img src="images/{{contact.Image_1}}" width="140" height="80"></a></td>
+                        <td><a href= images/{{contact.Image_2}} > <img src="images/{{contact.Image_2}}" width="140" height="80"></a></td>
+                        <td><a href= images/{{contact.Image_3}} > <img src="images/{{contact.Image_3}}" width="140" height="80"></a></td>
+                        <td><a href= images/{{contact.Image_4}} > <img src="images/{{contact.Image_4}}" width="140" height="80"></a></td>
+                        <!-- <td>{{contact.Image_3}}</td> -->
+
+                    </tr>
+                    </tbody>
+                </table>
+                <button ng-click="getData()">get my Data !!!</button>
+
+                </div>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>               
+	
+    </body>
+</html>

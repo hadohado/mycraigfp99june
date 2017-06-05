@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <script src="../bower_components/angular/angular.js"></script>
+    <!-- <script src="assignment_1_2_ClassValidations.js"></script> -->
+
+
+    <script src="controllers/login.js"></script>
+
+    <style>
+        form .ng-pristine { background-color: lightgoldenrodyellow; }
+        form .ng-invalid.ng-dirty { background-color: indianred; }
+        form .ng-valid.ng-dirty { background-color: lightgreen; }
+
+        input[name='email'].ng-dirty.ng-invalid {
+            color: red;
+        }
+
+        input[name='email'].ng-dirty.ng-valid {
+            color: green;
+        }
+    </style>
+
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+<div ng-app="login" ng-controller="loginCtrl">  <!-- page2  and page2Ctrl -->
+ <!--
+    <div ng-show="registrationForm.$pristine">Form input has not yet started (form is in pristine state)</div>
+    <div ng-show="registrationForm.$dirty">Form input has started (form is in dirty state)</div>
+    -->
+    <h2>Login</h2>
+
+    <form name="registrationForm" class="form-horizontal" ng-submit="login()" novalidate>
+        <div class="well">
+            <!-- name (muat be between 4 and 10 characters as specified by minlengh and maxlength attributes) -->
+
+            <!-- email -->
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label"> Email Address: </label>
+                <div class="col-sm-5">
+                    <input class="form-control" id="email" type="email" placeholder="Email" name="email" ng-model="person.email" required>
+                    </div>
+                <span style="color:red" ng-show="emailInvalid"><br/>A valid email address is required</span>
+            </div>
+
+            <!-- password (muat be between 4 and 10 characters as specified by minlengh and maxlength attributes) -->
+            <div class="form-group">
+                <label for="password" class="control-label col-sm-2">Password:</label>
+                <div class="col-sm-5">
+                <input class="form-control" type="password" id="password" placeholder="password" name="password" minlength="4" maxlength="10"
+                       ng-model="person.password" required class="form-control col-sm-10">
+                <span  style="color:red" ng-show="passwordInvalid">Please enter a string between 4 and 10 characters for password </span>
+                    <br/>
+                    </div>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-default">
+            </div>
+        </div>
+
+    </form>
+  
+    <div ng-show="loginValid">  You are logged in</div>
+    <!-- <div ng-show="!loginValid">  Incorrect name or password</div> -->
+    <!-- <div ng-show="doShow">  You are logged in</div> -->
+
+</div>
+
+
+
+</body>
+</html>

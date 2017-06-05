@@ -1,0 +1,21 @@
+body {
+  font-size: 1.0em;
+}
+
+div {
+  font-size: 1.05em;
+}
+
+input {
+  font-size: 1.0em;
+}
+
+li {
+  font-size: 1.0em;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}

@@ -1,0 +1,53 @@
+INSERT INTO `region` (`Region_ID`, `RegionName`) VALUES
+(1, 'usa'),
+(2, 'europe'),
+(3, 'asia');
+
+INSERT INTO `location` (`Location_ID`, `Region_ID`, `LocationName`) VALUES
+(1, 1, 'san francisco'),
+(2, 1, 'LA'),
+(3, 1, 'washington'),
+(4, 2, 'paris'),
+(5, 2, 'rome'),
+(6, 2, 'london'),
+(7, 3, 'saigon'),
+(8, 3, 'tokyo'),
+(9, 3, 'delhi');
+
+
+**********************
+INSERT INTO `category` (`Category_ID`, `CategoryName`) VALUES
+(1, 'jobs'),
+(2, 'housing'),
+(3, 'for sale');
+
+INSERT INTO `subcategory` (`SubCategory_ID`, `Category_ID`, `SubCategroryName`) VALUES
+(1, 1, 'software'),
+(2, 1, 'accounting'),
+(3, 1, 'business'),
+(4, 2, 'apartment'),
+(5, 2, 'office'),
+(6, 2, 'vacation rental'),
+(7, 3, 'jewelry'),
+(8, 3, 'household'),
+(9, 3, 'electronics');
+
+
+job
+housing
+for_sale
+--------------
+software
+accounting
+business
+apartment
+office
+vacation rental
+jewelry
+household
+electronics
+
+
+
+
+

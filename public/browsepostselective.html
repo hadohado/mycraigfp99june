@@ -1,0 +1,132 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="robots" content="index">
+        <meta name="description" content="new post form">
+        <meta name="keywords" content="new post form">
+
+        <style type="text/css">
+            .scrollabletextbox {
+                width:450px; 
+                height:100px;                      
+                overflow:scroll;
+                overflow-x:hidden;
+            }
+            </style>
+        <script src="../bower_components/angular/angular.js"></script>
+
+        <script src="controllers/browsepostselective.js"></script>
+        </head>
+
+<body>
+
+    <div ng-app="browsepostselective" ng-controller="browsepostselectiveCtrl">
+
+    <div class="container">
+
+    <br>
+
+<form name="registrationForm" class="form-horizontal" ng-submit="getDataUsingPost()" novalidate>
+    <div class="well">
+
+<div class="row">
+  <div class="col-sm-6">
+  
+
+
+    <!-- . . . . . -->
+    <label>
+    <input type="radio" name="subcat2" value="software" ng-model="selection.subcat2">software</label>
+    <label>
+    <input type="radio" name="subcat2" value="accounting" ng-model="selection.subcat2">accounting</label>
+    <label>
+    <input type="radio" name="subcat2" value="business" ng-model="selection.subcat2">business</label>
+    <br>
+  
+    <label>
+    <input type="radio" name="subcat2" value="apartment" ng-model="selection.subcat2">apartment</label>
+    <label>
+    <input type="radio" name="subcat2" value="office" ng-model="selection.subcat2">office</label>
+    <label>
+    <input type="radio" name="subcat2" value="vacation_rental" ng-model="selection.subcat2">vacation_rental</label>
+    <br>
+
+    <label>
+    <input type="radio" name="subcat2" value="jewelry" ng-model="selection.subcat2">jewelry</label>
+    <label>
+    <input type="radio" name="subcat2" value="household" ng-model="selection.subcat2">household</label>
+    <label>
+    <input type="radio" name="subcat2" value="electronics" ng-model="selection.subcat2">electronics</label>
+    <br>   
+
+</div>
+  
+  <div class="col-sm-6">
+
+ 
+
+    <!-- . <br> . . . . -->
+    
+    <label><input type="radio" name="location" value="san francisco" ng-model="selection.location">san francisco</label>
+    <label><input type="radio" name="location" value="LA" ng-model="selection.location">LA</label>
+    <label><input type="radio" name="location" value="washington" ng-model="selection.location">washington</label>
+
+    <br>
+    <label><input type="radio" name="location" value="paris" ng-model="selection.location">paris</label>
+    <label><input type="radio" name="location" value="rome" ng-model="selection.location">rome</label>
+    <label><input type="radio" name="location" value="london" ng-model="selection.location">london</label>
+
+    <br>
+    <label><input type="radio" name="location" value="saigon" ng-model="selection.location">saigon</label>
+    <label><input type="radio" name="location" value="tokyo" ng-model="selection.location">tokyo</label>
+    <label><input type="radio" name="location" value="delhi" ng-model="selection.location">delhi</label>
+
+ </div>
+ 
+</div>
+
+<input type="submit" ngClick="Submit" >
+
+<!--
+<input type="submit" ngClick="Browse Posts" >
+-->
+    </div>
+
+
+</form>
+
+<br>
+
+<div class="row">
+
+    <!-- <section class="col-xs-4 col-md-4">  -->
+    <section class="col-sm-4 col-md-4"> 
+      <!-- <h3>Left</h3>  <p>Offer 1</p>  -->
+      <div id="col0bs"></div>
+    </section>
+
+    <section class="col-sm-4 col-md-4">   
+      <!-- <h3>Middle</h3> <p>Offer 2</p> -->
+      <div id="col1bs"></div>
+    </section>
+
+    <section class="col-sm-4 col-md-4">   
+      <!-- <h3>Right</h3>   <p>Offer 3</p> -->
+      <div id="col2bs"></div>
+    </section>
+
+    </div>
+    <!-- <button ng-click="getDataUsingPost()">get my Data !!!</button> -->
+
+</div>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>               
+	
+    </body>
+</html>
