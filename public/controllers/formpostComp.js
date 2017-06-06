@@ -31,6 +31,7 @@ function formpostcompCtrl(DbService, $window) {
     // this whole section works 
     // (must have <input..> and <button..> in formpostComp.html)
     //---------------------------------------------------------
+    // <button type="button" class="decrement-btn">Decrement</button>
     // <input type="text" class="counter" value="1"/>
     // <button type="button" class="increment-btn">Increment</button>
     var $counter = document.querySelector('.counter');
