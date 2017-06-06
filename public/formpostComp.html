@@ -1,18 +1,40 @@
 
-<!-- <span>Object.keys({{$ctrl.postsspecial[0]}})</span> -->
+<button type="button" class="decrement-btn">Decrement</button>
+<input type="text" class="counter" value="1"/>
+<button type="button" class="increment-btn">Increment</button>
+
+<!-- <button ng-click="$ctrl.edit1post(pux.Post_ID);">Edit post</button>
+-->
+
+<li>"psize = " {{$ctrl.psize}}
+    " post_id = " {{$ctrl.postsspecial[$ctrl.psize -1].Post_ID}} 
+    " post specially " {{ $ctrl.postsspecial[$ctrl.psize -1] }}
+    <a href= /images/{{$ctrl.postsspecial[$ctrl.psize -1].Image_1}}>
+      <img src='images/{{$ctrl.postsspecial[$ctrl.psize- 1].Image_1}}' width='280' height='160'></a>
+</li>
+
+<!-- /////////////////////////////////////////////////////////////////
+     // this works, it displays only 1st post of multiple posts by a user
+<li>
+    "post_id = " {{$ctrl.postsspecial[0].Post_ID}} 
+    "post specially " {{ $ctrl.postsspecial[0] }}
+    <a href= /images/{{$ctrl.postsspecial[0].Image_1}}>
+      <img src='images/{{$ctrl.postsspecial[0].Image_1}}' width='280' height='160'></a>
+</li>
+-->
+
+<!-- /////////////////////////////////////////////////////////////////
 <ol>
   <li ng-repeat="pux in $ctrl.postsspecial">
     "post_id = " {{pux.Post_ID}} "post specially " {{ pux }}
+    <a href= /images/{{pux.Image_1}}>
+      <img src='images/{{pux.Image_1}}' width='280' height='160'></a>
 
-<a href= /images/{{pux.Image_1}}><img src='images/{{pux.Image_1}}' width='280' height='160'></a>
-	<button ng-click="$ctrl.edit1post(pux.Post_ID);">Edit post</button>
-	<button ng-click="$ctrl.removepost(pux.Post_ID);">Remove Post</button>
-    <!--
-    <button ng-click="$ctrl.remove(pux.Post_ID);">Remove Post</button>
-    <button ng-click="$ctrl.testingYou(pux.Post_ID);">Testing</button>
-	-->
-
+    <button ng-click="$ctrl.edit1post(pux.Post_ID);">Edit post</button>
+    <button ng-click="$ctrl.removepost(pux.Post_ID);">Remove Post</button>
   </li>
 </ol>
 
+-->
 
+<!-- <span>Object.keys({{$ctrl.postsspecial[0]}})</span> -->

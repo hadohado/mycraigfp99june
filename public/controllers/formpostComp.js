@@ -6,6 +6,7 @@ angular.module('editpost')
     controller: formpostcompCtrl,
     bindings: {
         postsspecial: '<' ,
+        psize: '<',
         onRemove: '&'
         // hero: '<'       // 1-way binding
         // hero: '='    // 2-way binding    
@@ -18,6 +19,34 @@ formpostcompCtrl.$inject = [ 'DbService',  '$window'];
 
 function formpostcompCtrl(DbService, $window) {
     var $ctrl = this;
+
+// var $button = document.querySelector('.increment-btn');
+// var $counter = document.querySelector('.counter');
+// $button.addEventListener('click', function(){
+//  $counter.value = parseInt($counter.value) + 1; 
+  // `parseInt` converts the `value` from a string to a number
+// }, false);
+
+    //---------------------------------------------------------
+    // this whole section works 
+    // (must have <input..> and <button..> in formpostComp.html)
+    //---------------------------------------------------------
+    // <input type="text" class="counter" value="1"/>
+    // <button type="button" class="increment-btn">Increment</button>
+    var $counter = document.querySelector('.counter');
+    var $button = document.querySelector('.increment-btn');    
+    $button.addEventListener('click', function(){
+        if ($counter.value < 5) {
+        $counter.value = parseInt($counter.value) + 1; }
+        // `parseInt`  string to a number
+    }, false);
+    var $buttondec = document.querySelector('.decrement-btn');
+    $buttondec.addEventListener('click', function(){
+        if ($counter.value > 0) {
+        $counter.value = parseInt($counter.value) - 1; }
+    }, false);
+
+    //---------------------------------------------------------
 
     $ctrl.edit1post = function (postid, $window) {
 

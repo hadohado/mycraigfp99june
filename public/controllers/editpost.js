@@ -34,6 +34,8 @@ function editpostCtrl($scope, $http, DbService) {
     //this.postsspecial = response.data;
     //console.log("this.postsspecial = ", this.postsspecial);
     menu.postsspecial = response.data;
+    menu.psize = menu.postsspecial.length;
+    console.log("postsspecialsize = ", menu.psize);
     console.log("keys = ", Object.keys(menu.postsspecial[0]));
     console.log("postsspecial = ", menu.postsspecial);
     })
