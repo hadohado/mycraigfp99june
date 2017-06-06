@@ -61,28 +61,5 @@ function editpostCtrl($scope, $http, DbService) {
 }
 
 
-// ]);
-
-
-// function displaypostcompCtrl() {
-// 
-// }
-// 
-// angular.module('editpost')
-// .component('displaypostcomp', {
-//     // template: "<span>Name: {{$ctrl.hero.name}}</span>",
-//     templateUrl: "displaypostcomp.html",
-//     controller: displaypostcompCtrl,
-//     bindings: {
-//         postsspecial: '<',
-//         postlist: '=',
-//         wonderwoman: '<',
-//         book: '<',
-//         hero: '<'       // 1-way binding
-//         // hero: '='    // 2-way binding
-//         ,  onDelete: '&'
-//      }
-// });
-
 
 

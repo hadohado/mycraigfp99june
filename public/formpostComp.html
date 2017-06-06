@@ -1,0 +1,18 @@
+
+<!-- <span>Object.keys({{$ctrl.postsspecial[0]}})</span> -->
+<ol>
+  <li ng-repeat="pux in $ctrl.postsspecial">
+    "post_id = " {{pux.Post_ID}} "post specially " {{ pux }}
+
+<a href= /images/{{pux.Image_1}}><img src='images/{{pux.Image_1}}' width='280' height='160'></a>
+	<button ng-click="$ctrl.edit1post(pux.Post_ID);">Edit post</button>
+	<button ng-click="$ctrl.removepost(pux.Post_ID);">Remove Post</button>
+    <!--
+    <button ng-click="$ctrl.remove(pux.Post_ID);">Remove Post</button>
+    <button ng-click="$ctrl.testingYou(pux.Post_ID);">Testing</button>
+	-->
+
+  </li>
+</ol>
+
+
