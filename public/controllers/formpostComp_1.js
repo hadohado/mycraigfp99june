@@ -7,8 +7,7 @@ angular.module('editpost')
     bindings: {
         postsspecial: '<' ,
         psize: '<',
-        onRemove: '&',
-        mycounter: '<'
+        onRemove: '&'
         // hero: '<'       // 1-way binding
         // hero: '='    // 2-way binding    
         // ,  onDelete: '&'
@@ -35,8 +34,6 @@ function formpostcompCtrl(DbService, $window) {
     // <button type="button" class="decrement-btn">Decrement</button>
     // <input type="text" class="counter" value="1"/>
     // <button type="button" class="increment-btn">Increment</button>
-    
-    /*
     var $counter = document.querySelector('.counter');
     var $button = document.querySelector('.increment-btn');    
     $button.addEventListener('click', function(){
@@ -49,7 +46,6 @@ function formpostcompCtrl(DbService, $window) {
         if ($counter.value > 0) {
         $counter.value = parseInt($counter.value) - 1; }
     }, false);
-    */
 
     //---------------------------------------------------------
 

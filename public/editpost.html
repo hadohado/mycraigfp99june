@@ -23,12 +23,7 @@
         
         </head>
 <body>
-    <!-- <div ng-app="editpost" ng-controller="editpostCtrl as editpostct"> -->
     <div ng-app="editpost" ng-controller="editpostCtrl as ctrl">
-
-<!--
-    <displaypostcomp hero="ctrl.hero" book="ctrl.book" postlist="ctrl.postlist" postsspecial="ctrl.postsspecial">Am I a hero ?</displaypostcomp>
-    -->
 
     <div class="container">
     <br>
@@ -67,8 +62,19 @@
 
 <div class="row">
 
- 
- <formpostcomp postsspecial="ctrl.postsspecial" psize="ctrl.psize">Am I ... ?</formpostcomp>
+
+
+
+<!-- do not use {{ctrl.dummycounter}} -->
+<span>"dummy counter = " {{dummycounter}}</span>
+<br>
+
+ <button type="button" class="epdecrementbtn">Dec</button>
+<input type="text" class="epcounter" value="0"/>
+<button type="button" class="epincrementbtn">Inc</button>
+
+ <formpostcomp postsspecial="ctrl.postsspecial" psize="ctrl.psize" 
+    mycounter="ctrl.mycounter">Am I ... ?</formpostcomp>
  <!-- 
  <displaypostcomp hero="ctrl.hero" book="ctrl.book" postlist="ctrl.postlist" postsspecial="ctrl.postsspecial">Am I a hero ?</displaypostcomp>
  -->
