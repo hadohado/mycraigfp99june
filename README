@@ -1,63 +1,21 @@
-5-25
+6-5,   5-25
 STATUS      =   login ok
-ACTION-ITEM =   when login with wrong name: should say wrong login
-
+ACTION-ITEM =   in edit/delete mode    cycle through a post if user have multiple posts
 
 -------------------
-2 problems:
-1- can not post
-2- can not delete post
+problems: ?
 
 
 to run this app:
 1- open a nodejs command prompt window
-    cd c:\code\Project\miniCraiglistBuildUp/v27
+    cd /Applications/XAMPP/htdocs/mycraigfp99
     node server.js
     // a server will start running
 
-2- make sure the Bitnami mysql server is NOT running by:
-        opening microsoft window, navigate to c:\Bitnami\wordpress-4.5.3-0
-        click on manager-window.exe
-        stop mysql server if it's running !
-        (otherwise it will interfere with the xampp mysql server that we will start in next step
-
-3- open a microsoft window, navigate to c:\xampp
+2- make sure the mysql server is running on Macbook air:
     click on xamp-control.exe
     start mysql (dont need to start Apache server since we already have Nodejs server running
 
-4- on a web browser, type  localhost:3000
-    click on Page5-browse button (on top right)
-    click on get my data!!! button
-    will see craiglist posts
-
-    <!--
-    cat         sub-category
-    ---         ------------
-    job         software
-                accounting
-                business
-        
-    housing     apartment
-                office
-                vacation_rental
-
-    for sale    jewelry
-                household
-                electronics
-    -->
-
-    <!-- - - - - - - - - - - - - - - - - - - 
-    region      location
-    ------      -------
-    usa         san francisco
-                LA
-                washington
-    europe      paris
-                rome
-                london
-    asia        saigon
-                tokyo
-                delhi
-    - - - - - - - - - - - - - - - - - - - -->
+3- on a web browser, type  localhost:3000
 
 
