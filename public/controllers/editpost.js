@@ -10,14 +10,15 @@ function editpostCtrl($scope, $http, DbService) {
     $scope.person =  {} ;
     // $scope.selection =  {} ;
 
-    menu.mycounter = -100; // initial value shown up in html page 
+    // menu.mycounter = -100; // initial value shown up in html page 
 
     var $epcounter = document.querySelector('.epcounter');
     // var dummycounter = 0;
     $scope.dummycounter = 0;
     var $epbuttoninc = document.querySelector('.epincrementbtn');    
     $epbuttoninc.addEventListener('click', function(){
-        if ($epcounter.value < 5) {
+        // if ($scope.dummycounter < 5) { // if ($epcounter.value < 5) {
+        if ($scope.dummycounter < menu.psize - 1 ) {
             console.log("epcounter.value before = ", $epcounter.value,
              " dummycounter ", $scope.dummycounter);
             // $scope.dummycounter = parseInt($epcounter.value);
@@ -30,7 +31,7 @@ function editpostCtrl($scope, $http, DbService) {
     }, false);
     var $epbuttondec = document.querySelector('.epdecrementbtn');
     $epbuttondec.addEventListener('click', function(){
-        if ($epcounter.value > 0) {
+        if ($scope.dummycounter > 0) { // if ($epcounter.value > 0) {
             $scope.dummycounter -= 1;
             $epcounter.value = $scope.dummycounter; 
             // $epcounter.value = parseInt($epcounter.value) - 1; 
@@ -69,7 +70,7 @@ function editpostCtrl($scope, $http, DbService) {
 
         console.log("postsspecialsize = ", menu.psize);
         // console.log("keys = ", Object.keys(menu.postsspecial[0]));
-        console.log("psizeSelected  " , menu.psizeSelected);
+        // console.log("psizeSelected  " , menu.psizeSelected);
         console.log("postsspecial = ", menu.postsspecial);
         
         })

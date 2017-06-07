@@ -18,6 +18,19 @@
 -->
 
 
+
+<li>"psize = " {{$ctrl.psize}}
+    " psizeSelected = " {{$ctrl.psize-selected}}
+    " post_id = " {{$ctrl.postsspecial[$ctrl.psize-selected].Post_ID}} 
+    " post specially " {{ $ctrl.postsspecial[$ctrl.psize-selected] }}
+    <a href= /images/{{$ctrl.postsspecial[$ctrl.psize-selected].Image_1}}>
+      <img src='images/{{$ctrl.postsspecial[$ctrl.psize-selected].Image_1}}' width='280' height='160'></a>
+</li>
+
+
+<br>
+<hr>
+
 <li>"psize = " {{$ctrl.psize}}
     " psizeSelected = " {{$ctrl.mysi}}
     " post_id = " {{$ctrl.postsspecial[$ctrl.mysi].Post_ID}} 
@@ -26,7 +39,27 @@
       <img src='images/{{$ctrl.postsspecial[$ctrl.mysi].Image_1}}' width='280' height='160'></a>
 </li>
 
+<br>
+<hr>
 
+<li>"psize = " {{$ctrl.psize}}
+    " psizeSelected = " {{$ctrl.psizeSelected}}
+    " post_id = " {{$ctrl.postsspecial[$ctrl.psizeSelected].Post_ID}} 
+    " post specially " {{ $ctrl.postsspecial[2] }}
+    <a href= /images/{{$ctrl.postsspecial[2].Image_1}}>
+      <img src='images/{{$ctrl.postsspecial[2].Image_1}}' width='280' height='160'></a>
+</li>
+
+<br>
+<hr>
+
+<li>"psize = " {{$ctrl.psize}}
+    " post_id = " {{$ctrl.postsspecial[$ctrl.psize -1].Post_ID}} 
+    " post specially " {{ $ctrl.postsspecial[$ctrl.psize -1] }}
+    <a href= /images/{{$ctrl.postsspecial[$ctrl.psize -1].Image_1}}>
+      <img src='images/{{$ctrl.postsspecial[$ctrl.psize- 1].Image_1}}' width='280' height='160'></a>
+</li>
+<!-- -->
 
 
 <!-- /////////////////////////////////////////////////////////////////
