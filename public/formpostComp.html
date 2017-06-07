@@ -1,8 +1,57 @@
 
 
-<!-- <button ng-click="$ctrl.edit1post(pux.Post_ID);">Edit post</button>
--->
+
+
+
 <span>"User's post number = " {{$ctrl.mycounter}}</span>
+
+<!-- CAN NOT SEY psizeSelected   here in html, probaly should say
+     psize-selected ???
+
+<li>"psize = " {{$ctrl.psize}}
+    " psizeSelected = " {{$ctrl.psizeSelected}}
+    " post_id = " {{$ctrl.postsspecial[$ctrl.psizeSelected].Post_ID}} 
+    " post specially " {{ $ctrl.postsspecial[$ctrl.psizeSelected] }}
+    <a href= /images/{{$ctrl.postsspecial[$ctrl.psizeSelected].Image_1}}>
+      <img src='images/{{$ctrl.postsspecial[$ctrl.psizeSelected].Image_1}}' width='280' height='160'></a>
+</li>
+-->
+
+
+
+<li>"psize = " {{$ctrl.psize}}
+    " psizeSelected = " {{$ctrl.psize-selected}}
+    " post_id = " {{$ctrl.postsspecial[$ctrl.psize-selected].Post_ID}} 
+    " post specially " {{ $ctrl.postsspecial[$ctrl.psize-selected] }}
+    <a href= /images/{{$ctrl.postsspecial[$ctrl.psize-selected].Image_1}}>
+      <img src='images/{{$ctrl.postsspecial[$ctrl.psize-selected].Image_1}}' width='280' height='160'></a>
+</li>
+
+
+<br>
+<hr>
+
+<li>"psize = " {{$ctrl.psize}}
+    " psizeSelected = " {{$ctrl.mysi}}
+    " post_id = " {{$ctrl.postsspecial[$ctrl.mysi].Post_ID}} 
+    " post specially " {{ $ctrl.postsspecial[$ctrl.mysi] }}
+    <a href= /images/{{$ctrl.postsspecial[$ctrl.mysi].Image_1}}>
+      <img src='images/{{$ctrl.postsspecial[$ctrl.mysi].Image_1}}' width='280' height='160'></a>
+</li>
+
+<br>
+<hr>
+
+<li>"psize = " {{$ctrl.psize}}
+    " psizeSelected = " {{$ctrl.psizeSelected}}
+    " post_id = " {{$ctrl.postsspecial[$ctrl.psizeSelected].Post_ID}} 
+    " post specially " {{ $ctrl.postsspecial[2] }}
+    <a href= /images/{{$ctrl.postsspecial[2].Image_1}}>
+      <img src='images/{{$ctrl.postsspecial[2].Image_1}}' width='280' height='160'></a>
+</li>
+
+<br>
+<hr>
 
 <li>"psize = " {{$ctrl.psize}}
     " post_id = " {{$ctrl.postsspecial[$ctrl.psize -1].Post_ID}} 
@@ -10,6 +59,8 @@
     <a href= /images/{{$ctrl.postsspecial[$ctrl.psize -1].Image_1}}>
       <img src='images/{{$ctrl.postsspecial[$ctrl.psize- 1].Image_1}}' width='280' height='160'></a>
 </li>
+<!-- -->
+
 
 <!-- /////////////////////////////////////////////////////////////////
      // this works, it displays only 1st post of multiple posts by a user

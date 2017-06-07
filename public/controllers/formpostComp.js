@@ -7,6 +7,8 @@ angular.module('editpost')
     bindings: {
         postsspecial: '<' ,
         psize: '<',
+        mysi:  '<',
+        psizeSelected: '<',
         onRemove: '&',
         mycounter: '<'
         // hero: '<'       // 1-way binding

@@ -57,7 +57,9 @@ function editpostCtrl($scope, $http, DbService) {
     
         menu.postsspecial = response.data;
         menu.psize = menu.postsspecial.length;
-    
+        menu.mysi = $scope.dummycounter ;      // 2;
+        menu.psizeSelected = $scope.dummycounter ; // 2; // $scope.dummycounter;
+
         // mycounter range from 0 to psize -1 (f postsspecial array has elements in it)
         // mycounter = -1 if array "postsspecial" size = 0, 
         // which means there are no posts from user, then 
@@ -66,8 +68,10 @@ function editpostCtrl($scope, $http, DbService) {
         }
 
         console.log("postsspecialsize = ", menu.psize);
-        console.log("keys = ", Object.keys(menu.postsspecial[0]));
+        // console.log("keys = ", Object.keys(menu.postsspecial[0]));
+        console.log("psizeSelected  " , menu.psizeSelected);
         console.log("postsspecial = ", menu.postsspecial);
+        
         })
         .catch(function (error) {
             console.log("Something went terribly wrong, no posts !!!");
