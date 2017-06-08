@@ -1,16 +1,29 @@
 angular.module('editpost', [])
+.factory('PostListFactory', PostListFactory)
 .controller('editpostCtrl', editpostCtrl);
 
-editpostCtrl.$inject = ['$scope','$http', 'DbService'];
+editpostCtrl.$inject = ['$scope','$http', 'DbService' , 'PostListFactory'];
 
 // .controller('editpostCtrl', ['$scope','$http',  
-function editpostCtrl($scope, $http, DbService) {
+function editpostCtrl($scope, $http, DbService, PostListFactory) {
     console.log("Hi There from angular controller");
     var menu  = this;  // <----------------- IMPOTANT, MUST HAVE
+
+
+    menu.showthis = "hey what up";
+
+
+    // Use factory to create new post list service
+    var PostList = PostListFactory();
+
+
+
     $scope.person =  {} ;
     // $scope.selection =  {} ;
 
     // menu.mycounter = -100; // initial value shown up in html page 
+
+    $scope.price = menu.price; // Add NOW
 
     var $epcounter = document.querySelector('.epcounter');
     // var dummycounter = 0;
@@ -24,20 +37,30 @@ function editpostCtrl($scope, $http, DbService) {
             // $scope.dummycounter = parseInt($epcounter.value);
             $scope.dummycounter += 1;
             $epcounter.value = $scope.dummycounter; // dummycounter.toString();
+            menu.onepost = menu.postsspecial[$scope.dummycounter];
             console.log("epcounter.value after  = ", $epcounter.value,
                 "dummycounter ", $scope.dummycounter);
         }
         // `parseInt`  string to a number
     }, false);
+
     var $epbuttondec = document.querySelector('.epdecrementbtn');
     $epbuttondec.addEventListener('click', function(){
         if ($scope.dummycounter > 0) { // if ($epcounter.value > 0) {
             $scope.dummycounter -= 1;
             $epcounter.value = $scope.dummycounter; 
+            menu.onepost = menu.postsspecial[$scope.dummycounter];
             // $epcounter.value = parseInt($epcounter.value) - 1; 
         }
     }, false);
 
+  //  var $epselectthispost = document.querySelector('.epselectthispostbtn');    
+  //  $epselectthispost.addEventListener('click', function(){
+  //          console.log("epselectthsipost");
+  //          // menu.onepost = menu.postsspecial[$scope.dummycounter];
+  //          console.log ("ep select this post menu.onepost  ", menu.onepost,
+  //           "$scope.dummycounter ", $scope.dummycounter);
+  //  }, false);
 
     $scope.editpost = function () {
         console.log ("Dummy editpost button ");
@@ -60,6 +83,40 @@ function editpostCtrl($scope, $http, DbService) {
         menu.psize = menu.postsspecial.length;
         menu.mysi = $scope.dummycounter ;      // 2;
         menu.psizeSelected = $scope.dummycounter ; // 2; // $scope.dummycounter;
+
+
+        menu.onepost = menu.postsspecial[$scope.dummycounter];
+
+        console.log ("menu.onepost  ", menu.onepost, "$scope.dummycounter ", $scope.dummycounter);
+
+        // *****************************************
+        // add to fill out form for each post
+        // *****************************************
+        // menu.title = "library yo";
+        // menu.title = menu.postsspecial[0].title;
+        menu.price = menu.postsspecial[$scope.dummycounter].Price;
+        console.log("XXXXXx menu.price ", menu.price);
+
+//Description
+//Image_1
+//Image_2
+//Image_3
+//Image_4
+//Location_ID
+//Post_ID
+//Price
+//SubCategory_ID
+//TimeStamp
+//email
+//title
+
+
+
+PostList.addItem(menu.postsspecial[0] );
+
+console.log("PostList.getItems = ", PostList.getItems());
+
+// ti, pri, desc, n, em, pw, sj, loc, p1, p2, p3, p4
 
         // mycounter range from 0 to psize -1 (f postsspecial array has elements in it)
         // mycounter = -1 if array "postsspecial" size = 0, 
@@ -97,6 +154,52 @@ function editpostCtrl($scope, $http, DbService) {
 
 }
 
+function PostListFactory() {
+  var factory = function () {
+    return new PostListService();
+  };
+ // var factory = function (maxItems) { return new PostListService(maxItems); };
+  return factory;
+}
 
+function PostListService() {
+  var service = this;
 
+  // List of Post items
+  var items = []; // items = posts
+
+  service.addItem = function (objpost) {
+  // (objpost, ti, pri, desc, n, em, pw, sj, loc, p1, p2, p3, p4) {
+ /* dont need this
+      var item = {
+        title: ti, price: pri,
+        description: desc,
+        name: n,
+        email: em,
+        password: pw,
+        subject: sj,
+        location: loc,
+        pic1: p1,
+        pic2: p2,
+        pic3: p3,
+        pic4: p4
+        //name: itemName,
+        //quantity: quantity
+      };
+*/
+      var item = {};
+      item = objpost;
+      items.push(item);
+  
+
+  };
+
+  service.removeItem = function (itemIndex) {
+    items.splice(itemIndex, 1);
+  };
+
+  service.getItems = function () {
+    return items;
+  };
+}
 

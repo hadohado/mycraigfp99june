@@ -25,11 +25,6 @@ angular.module('routeApp',
             controller: 'newpostCtrl',
             templateUrl: 'newpost.html'
         });
-
-        //$routeProvider.when('/browsepost', {
-        //    controller: 'browsepostCtrl',
-        //    templateUrl: 'browsepost.html'
-        //});
        
        $routeProvider.when('/newpostdelete', {
             controller: 'newpostdeleteCtrl',

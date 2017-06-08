@@ -22,6 +22,12 @@ angular.module("newpost", ['ngFileUpload'])
         // try to initialize some values in the form 
         //-----
         $scope.person.title = "paris account clear";
+        //-----------------------------------------------
+        // 9-5
+        // this is latest function uploadPic()
+        // it actually send  multiple image files and other field like title, email  to server
+        //------------------------------------------------
+        //  $scope.picFile = picFile;
 
             $scope.uploadPic = function (files) {
                 $scope.files = files;
@@ -36,6 +42,7 @@ angular.module("newpost", ['ngFileUpload'])
                         //url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
                         url: './newpost2',
                         data: {
+                            // title: $scope.title, // I Add <-- this is RIGHT !!!
                             title: $scope.person.title,
                             price: $scope.person.price,
                             description: $scope.person.description,

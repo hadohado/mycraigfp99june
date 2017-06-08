@@ -1,0 +1,66 @@
+    <!-- ng-model="$ctrl.person.title" -->
+
+    <form name="registrationForm" class="form-horizontal" ng-submit="register()" novalidate>
+        <div class="well">
+
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2"> title: </label>
+                <div class="col-sm-5">
+                    <input type="text" id="title" placeholder="title" name="title" minlength="4" maxlength="100" 
+                    ng-model="onepost.title"
+                           required class="form-control col-sm-10" >
+                    <span style="color:red" ng-show="titleInvalid">Please enter a string between 4 and 10 characters for title</span>
+                    <br>
+                    </div>
+            </div>
+
+            <div class="form-group">
+                <label for="price" class="col-sm-2 control-label"> price: </label>
+                <div class="col-sm-5">
+                    <input class="form-control" id="price" type="text" placeholder="price" name="price" ng-model="$ctrl.person.price" required>
+                </div>
+                <span style="color:red" ng-show="priceInvalid"><br/>A valid price  is required</span>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="col-sm-2 control-label"> description: </label>
+                <div class="col-sm-5">
+                    <input class="form-control" id="description" type="textarea" placeholder="description" name="description" ng-model="$ctrl.person.description" required>
+                </div>
+                <span style="color:red" ng-show="descriptionInvalid"><br/>A valid description  is required</span>
+            </div>
+
+            <div class="form-group">
+                <label for="channels" class="control-label col-sm-2">subcategory: </label>
+                <div class="col-sm-5">
+                    <select name="channels" id="channels" ng-model="person.channels"
+                            ng-options="obj.value as obj.label for obj in person.channels" class="form-control">
+                        <option value=""></option>
+                    </select>
+                    <span ng-show="researchInvalid"><br/>Please tell us which subcategory you choose</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="regions" class="control-label col-sm-2">region: </label>
+                <div class="col-sm-5">
+                    <select name="regions" id="regions" ng-model="person.regions"
+                            ng-options="obj.value as obj.label for obj in person.regions" class="form-control">
+                        <option value=""></option>
+                    </select>
+                    <span ng-show="regionsInvalid"><br/>Please tell us which region you choose</span>
+                </div>
+            </div>
+            
+            <div>  <br>Image 1: </div>
+
+            <div class="form-group">
+                <button ngf-select="uploadPic($files)" multiple
+                        accept="image/*">Select Files</button>
+
+            </div>
+        </div>
+
+    </form>
+
+

@@ -10,7 +10,11 @@ angular.module('editpost')
         mysi:  '<',
         psizeSelected: '<',
         onRemove: '&',
-        mycounter: '<'
+        mycounter: '<',
+
+        title: '=',
+        price: '<',// price: '=',
+        description: '='
         // hero: '<'       // 1-way binding
         // hero: '='    // 2-way binding    
         // ,  onDelete: '&'
@@ -18,10 +22,32 @@ angular.module('editpost')
 
 });
 
-formpostcompCtrl.$inject = [ 'DbService',  '$window'];
+formpostcompCtrl.$inject = [ 'DbService',  '$window', '$scope'];
 
-function formpostcompCtrl(DbService, $window) {
+function formpostcompCtrl(DbService, $window, $scope) {
     var $ctrl = this;
+
+        $ctrl.person = {}; 
+        $ctrl.titleInvalid = false;
+        $ctrl.priceInvalid = false;
+        $ctrl.descriptionInvalid = false;
+        $ctrl.emailInvalid = false;
+        $ctrl.passwordInvalid = false;
+        $ctrl.researchInvalid = false;
+        $ctrl.regionsInvalid = false;
+        $ctrl.doShow = false;
+
+        //-----
+        // try to initialize some values in the form 
+        //-----
+        // $ctrl.person.title = title;$scope
+        $ctrl.person.title = "paris account clear";
+        // $ctrl.person.price = 777888888; // this works
+        $ctrl.person.price = $ctrl.price; // undefined
+        console.log(" ####### $ctrl.price = ", $ctrl.price, " price = ", price );
+        // $ctrl.person.price = $scope.$parent.price;
+        // $ctrl.person.price = $scope.price;
+        // $ctrl.person.price = price;
 
 // var $button = document.querySelector('.increment-btn');
 // var $counter = document.querySelector('.counter');

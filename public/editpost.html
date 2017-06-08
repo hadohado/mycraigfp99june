@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -23,13 +21,13 @@
         
         </head>
 <body>
-    <div ng-app="editpost" ng-controller="editpostCtrl as ctrl">
+<div ng-app="editpost" ng-controller="editpostCtrl as ctrl">
 
-    <div class="container">
-    <br>
+<div class="container">
+<br>
 
-<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-<form name="registrationForm" class="form-horizontal" ng-submit="getDataUsingPost()" novalidate>
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <form name="registrationForm" class="form-horizontal" ng-submit="getDataUsingPost()" novalidate>
     <div class="well">
 
         <!-- email -->
@@ -41,7 +39,7 @@
                 <span style="color:red" ng-show="emailInvalid"><br/>A valid email address is required</span>
             </div>
 
-            <!-- password (muat be between 4 and 10 characters as specified by minlengh and maxlength attributes) -->
+            <!-- password  -->
             <div class="form-group">
                 <label for="password" class="control-label col-sm-2">Password:</label>
                 <div class="col-sm-5">
@@ -53,54 +51,105 @@
             </div>
         <input type="submit" ngClick="Submit" >
     </div>
+    </form>
 
-<!-- <input type="submit" ngClick="Submit" >  -->
+    <br>
 
-</form>
-
-<br>
-
-<div class="row">
-
-
-
-
-<!-- do not use {{ctrl.dummycounter}} -->
-<span>"dummy counter = " {{dummycounter}}</span>
-<br>
-
- <button type="button" class="epdecrementbtn">Dec</button>
-<input type="text" class="epcounter" value="0"/>
-<button type="button" class="epincrementbtn">Inc</button>
+    <div class="row">
+    <!-- do not use {{ctrl.dummycounter}} -->
+    <span>"dummy counter = " {{dummycounter}}</span>
+    <br>
+    <button type="button" class="epdecrementbtn">Dec</button>
+    <input type="text" class="epcounter" value="0"/>
+    <button type="button" class="epincrementbtn">Inc</button>
+    <button type="button" ng-click="getDataUsingPost()">Select this post</button>
 <!--
-<formpostcomp postsspecial="ctrl.postsspecial"  mysi="ctrl.mysi"
-    psize="ctrl.psize" psize-selected="ctrl.psizeSelected" 
-    mycounter="ctrl.mycounter">Am I ... ?</formpostcomp>
+    <button type="button" class="epselectthispostbtn">Select this post</button>
 -->
- <formpostcomp postsspecial="ctrl.postsspecial"  mysi="ctrl.mysi"
+    <!-- psize-selected="ctrl.psizeSelected"  -->
+    <!--
+    <formpostcomp postsspecial="ctrl.postsspecial"  mysi="ctrl.mysi"
     psize="ctrl.psize" psizeSelected="ctrl.psize-selected" 
-    mycounter="ctrl.mycounter">Am I ... ?</formpostcomp>
-
- <!-- 
- <displaypostcomp hero="ctrl.hero" book="ctrl.book" postlist="ctrl.postlist" postsspecial="ctrl.postsspecial">Am I a hero ?</displaypostcomp>
- -->
-
-
- <!--
- on-remove="ctrl.removeItem(index)">Am I a hero ?</displaypostcomp> -->
-
-    <!-- <section class="col-xs-4 col-md-4">  -->
-    <section class="col-sm-8 col-md-8"> 
-      <!-- <h3>Left</h3>  <p>Offer 1</p>  -->
-      <div id="col0bs"></div>
-    </section>
-
-  
-
+    mycounter="ctrl.mycounter" title="ctrl.title" price="ctrl.price" description="ctrl.description">Am I ... ?</formpostcomp>
+     -->
+    <!-- on-remove="ctrl.removeItem(index)">Am I ?</displaypostcomp> -->
     </div>
-    <!-- <button ng-click="getDataUsingPost()">get my Data !!!</button> -->
 
-</div>
+
+
+<!-- ng-model="onepost.title"  -->
+<!--   this works !!! ng-model="ctrl.showthis"   -->
+<!-- ############################################### -->
+<!-- -->
+<form name="registrationForm2" class="form-horizontal" ng-submit="register2()" novalidate>
+        <div class="well">
+
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2"> title: </label>
+                <div class="col-sm-5">
+                    <input type="text" id="title" placeholder="title" name="title" minlength="4" maxlength="100" 
+                    ng-model="ctrl.onepost.title"
+                           required class="form-control col-sm-10" >
+                    <span style="color:red" ng-show="titleInvalid">Please enter a string between 4 and 10 characters for title</span>
+                    <br>
+                    </div>
+            </div>
+
+            <div class="form-group">
+                <label for="price" class="col-sm-2 control-label"> price: </label>
+                <div class="col-sm-5">
+                    <input class="form-control" id="price" type="text" placeholder="price" name="price" ng-model="ctrl.onepost.Price" required>
+                </div>
+                <span style="color:red" ng-show="priceInvalid"><br/>A valid price  is required</span>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="col-sm-2 control-label"> description: </label>
+                <div class="col-sm-5">
+                    <input class="form-control" id="description" type="textarea" placeholder="description" name="description" ng-model="ctrl.onepost.Description" required>
+                </div>
+                <span style="color:red" ng-show="descriptionInvalid"><br/>A valid description  is required</span>
+            </div>
+
+            <div class="form-group">
+                <label for="channels" class="control-label col-sm-2">subcategory: </label>
+                <div class="col-sm-5">
+                    <select name="channels" id="channels" ng-model="person.channels"
+                            ng-options="obj.value as obj.label for obj in person.channels" class="form-control">
+                        <option value=""></option>
+                    </select>
+                    <span ng-show="researchInvalid"><br/>Please tell us which subcategory you choose</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="regions" class="control-label col-sm-2">region: </label>
+                <div class="col-sm-5">
+                    <select name="regions" id="regions" ng-model="person.regions"
+                            ng-options="obj.value as obj.label for obj in person.regions" class="form-control">
+                        <option value=""></option>
+                    </select>
+                    <span ng-show="regionsInvalid"><br/>Please tell us which region you choose</span>
+                </div>
+            </div>
+            
+            <div>  <br>Image 1: </div>
+
+            <div class="form-group">
+                <button ngf-select="uploadPic($files)" multiple
+                        accept="image/*">Select Files</button>
+
+            </div>
+        </div>
+
+    </form>
+
+
+<!-- ############################################### -->
+
+</div> <!-- class = container -->
+
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
