@@ -1,11 +1,11 @@
-angular.module('editpost', [])
+angular.module('editpost', ['ngFileUpload'])
 .factory('PostListFactory', PostListFactory)
 .controller('editpostCtrl', editpostCtrl);
 
-editpostCtrl.$inject = ['$scope','$http', 'DbService' , 'PostListFactory'];
+editpostCtrl.$inject = ['$scope','$http', 'DbService' , 'PostListFactory', 'Upload', '$timeout'];
 
 // .controller('editpostCtrl', ['$scope','$http',  
-function editpostCtrl($scope, $http, DbService, PostListFactory) {
+function editpostCtrl($scope, $http, DbService, PostListFactory, Upload, $timeout) {
     console.log("Hi There from angular controller");
     var menu  = this;  // <----------------- IMPOTANT, MUST HAVE
 
@@ -61,6 +61,49 @@ function editpostCtrl($scope, $http, DbService, PostListFactory) {
   //          console.log ("ep select this post menu.onepost  ", menu.onepost,
   //           "$scope.dummycounter ", $scope.dummycounter);
   //  }, false);
+
+            $scope.uploadPic = function (files) {
+                $scope.files = files;
+                // $scope.title = title; // <-- dont do assign to title here either !!!
+                // $scope.errFiles = errFiles;
+                // data: {title: $scope.title};
+
+                if (files && files.length) {
+                    console.log("newpost $scope.person = ", $scope.person);
+
+                    Upload.upload({
+                        //url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+                        url: './updatepost',
+                        data: {
+                            post_id: 112,
+                            title: $scope.person.title,
+                            price: $scope.person.price,
+                            description: $scope.person.description,
+                            email: $scope.person.email,
+                            password: $scope.person.password,
+                            subcategory: 1, // subcategory: $scope.person.channels,
+                            region: 1, // region: $scope.person.regions,
+
+                            files: files
+                        }
+                    }).then(function (response) {
+                        $timeout(function () {
+                            $scope.result = response.data;
+                        });
+                    }, function (response) {
+                        if (response.status > 0) {
+                            $scope.errorMsg = response.status + ': ' + response.data;
+                        }
+                    }, function (evt) {
+                        $scope.progress =
+                            Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                    });
+                }
+            };
+
+
+
+////////////////////////////////////////
 
     $scope.editpost = function () {
         console.log ("Dummy editpost button ");
@@ -152,7 +195,18 @@ console.log("PostList.getItems = ", PostList.getItems());
         });
     }
 
+
+
+
+
+
+
+
 }
+
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 function PostListFactory() {
   var factory = function () {
