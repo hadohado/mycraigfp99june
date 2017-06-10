@@ -1010,8 +1010,9 @@ titletemp = "hope this is working";
 //con.query('UPDATE posts SET Title  Price  Description = ? WHERE Post_ID = ?',
 //	[record.Title, record.Price, record.Description, postidHere], 
 
-con.query('UPDATE posts SET Title = ?,  Price = ?, Description = ?, Image_1 = ? WHERE Post_ID = ?',
-	[record.Title, record.Price, record.Description, myimage[0], postidHere], 
+con.query('UPDATE posts SET Title = ?,  Price = ?, Description = ?, \
+	Image_1 = ?, Image_2 = ?,Image_3 = ?, Image_4 = ? WHERE Post_ID = ?',
+	[record.Title, record.Price, record.Description, myimage[0], myimage[1], myimage[2], myimage[3], postidHere], 
 
 // con.query('UPDATE posts SET Title = ? WHERE Post_ID = ?',
 //	[titletemp, postidHere],
