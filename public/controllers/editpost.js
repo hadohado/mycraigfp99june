@@ -23,7 +23,7 @@ function editpostCtrl($scope, $http, DbService, PostListFactory, Upload, $timeou
 
     // menu.mycounter = -100; // initial value shown up in html page 
 
-    $scope.price = menu.price; // Add NOW
+    $scope.price = menu.Price; // Add NOW
 
     var $epcounter = document.querySelector('.epcounter');
     // var dummycounter = 0;
@@ -71,19 +71,30 @@ function editpostCtrl($scope, $http, DbService, PostListFactory, Upload, $timeou
                 if (files && files.length) {
                     console.log("newpost $scope.person = ", $scope.person);
 
+    // data: {
+    //    post_id: 112,
+    //    title: $scope.person.title,
+    //    price: $scope.person.price,
+    //    description: $scope.person.description,
+    //    email: $scope.person.email,
+    //    password: $scope.person.password,
+    //    subcategory: 1, // subcategory: $scope.person.channels,
+    //    region: 1, // region: $scope.person.regions,
+    //    files: files
+    // }
+
                     Upload.upload({
                         //url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
                         url: './updatepost',
                         data: {
-                            post_id: 112,
-                            title: $scope.person.title,
-                            price: $scope.person.price,
-                            description: $scope.person.description,
-                            email: $scope.person.email,
-                            password: $scope.person.password,
-                            subcategory: 1, // subcategory: $scope.person.channels,
-                            region: 1, // region: $scope.person.regions,
-
+                            Post_ID: menu.onepost.Post_ID, //   112,
+                            Title: menu.onepost.title, // $scope.person.title,
+                            Price: menu.onepost.Price,//menu.price, // $scope.person.price,
+                            Description: menu.onepost.Description, // $scope.person.description,
+                            Email: $scope.person.email,
+                            Password: $scope.person.password,
+                            Subcategory_ID: 1, // subcategory: $scope.person.channels,
+                            Location_ID: 1, // region: $scope.person.regions,
                             files: files
                         }
                     }).then(function (response) {
@@ -123,6 +134,7 @@ function editpostCtrl($scope, $http, DbService, PostListFactory, Upload, $timeou
         //console.log("this.postsspecial = ", this.postsspecial);
     
         menu.postsspecial = response.data;
+
         menu.psize = menu.postsspecial.length;
         menu.mysi = $scope.dummycounter ;      // 2;
         menu.psizeSelected = $scope.dummycounter ; // 2; // $scope.dummycounter;
@@ -137,8 +149,10 @@ function editpostCtrl($scope, $http, DbService, PostListFactory, Upload, $timeou
         // *****************************************
         // menu.title = "library yo";
         // menu.title = menu.postsspecial[0].title;
+        menu.title = menu.postsspecial[$scope.dummycounter].title; // Title
         menu.price = menu.postsspecial[$scope.dummycounter].Price;
-        console.log("XXXXXx menu.price ", menu.price);
+        menu.description = menu.postsspecial[$scope.dummycounter].Desciption;
+        console.log("XXXXXx menu.Price ", menu.Price);
 
 //Description
 //Image_1

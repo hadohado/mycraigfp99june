@@ -913,7 +913,7 @@ app.post('/updatepost', function (req, res) {
 	});
 	// console.log("I received a POST req  for ng-upload");
 
-console.log("server update req = ", req);	
+// console.log("server update req = ", req);	
 
 	////////////////////////////////////////////
 	//  create an incoming form object
@@ -940,17 +940,22 @@ console.log("server update req = ", req);
 	// parse the incoming request containing the form data
 	form.parse(req,
 		function(err, fields, files) {
-			postidHere = fields.post_id;
-			mytitle = fields.title;
-			myprice = fields.price;
-			mydescription = fields.description;
-			myemail = fields.email;
-			mypassword = fields.password;
-			mysubcategory = fields.subcategory;
-			myregion = fields.region;
+			
+			postidHere = fields.Post_ID;
 
-			employee = {
-				SubCategory_ID: mysubcategory, //SubCategory_ID: req.body.SubCategory_ID,
+			mytitle = fields.Title;
+			myprice = fields.Price;
+			mydescription = fields.Description;
+			myemail = fields.Email;
+			mypassword = fields.Password;
+			mysubcategory = fields.Subcategory_ID;
+			myregion = fields.Location_ID;
+
+console.log("postidHere ", postidHere, " fields.Title = ", fields.Title,
+	"fields.Price = ", fields.Price,
+	"fields.Description = ", fields.Description  );
+			/*				
+			employee = {	SubCategory_ID: mysubcategory, //SubCategory_ID: req.body.SubCategory_ID,
 				Location_ID: myregion, //Location_ID: req.body.Location_ID,
 				Title: mytitle ,
 				Image_1: myimage[0],
@@ -963,9 +968,27 @@ console.log("server update req = ", req);
 				Agreement: true  //Agreement: req.body.Agreement,
 				//Timestamp: req.body.Timestamp
 			};
-			
-			console.log("update this !!! employee = ", employee);
-titletemp ="hope this is working";
+			*/
+
+	record = {
+		Title: 			fields.Title ,
+		Price: 			fields.Price,
+		Description: 	fields.Description ,
+		Email: 			fields.Email,
+		SubCategory_ID: fields.SubCategory_ID,
+		Location_ID: 	fields.Location_ID, 
+		Image_1: 		myimage[0],
+		Image_2: 		myimage[1],
+		Image_3: 		myimage[2],
+		Image_4: 		myimage[3],		
+		Agreement: 		true 	
+		//Timestamp: req.body.Timestamp
+	};
+
+
+
+			console.log("update this !!! employee = ", record);
+titletemp = "hope this is working";
 
 //------------------------------------------------
 // insert  post data structure into database (for now post = employee)
@@ -976,8 +999,22 @@ titletemp ="hope this is working";
 
 //con.query('UPDATE posts SET Title = ?', [titletemp]
 	// 'WHERE Post_ID = ?', [postidHere], function(err,rows){	
-con.query('UPDATE posts SET Title = ? WHERE Post_ID = ?',
-	[titletemp, postidHere], 
+
+// this works
+// con.query('UPDATE posts SET Title = ? WHERE Post_ID = ?',
+//	[titletemp, postidHere],
+
+// con.query('UPDATE posts SET Title = ? Price = ? Description = ? WHERE Post_ID = ?',
+//	[record.Title, record.Price, record.Description, postidHere], 
+
+//con.query('UPDATE posts SET Title  Price  Description = ? WHERE Post_ID = ?',
+//	[record.Title, record.Price, record.Description, postidHere], 
+
+con.query('UPDATE posts SET Title = ?,  Price = ?, Description = ?, Image_1 = ? WHERE Post_ID = ?',
+	[record.Title, record.Price, record.Description, myimage[0], postidHere], 
+
+// con.query('UPDATE posts SET Title = ? WHERE Post_ID = ?',
+//	[titletemp, postidHere],
  		function(err,rows){	
 
 					if(err) throw err;
